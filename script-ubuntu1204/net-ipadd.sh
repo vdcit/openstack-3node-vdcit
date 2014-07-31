@@ -42,10 +42,10 @@ iface eth0 inet static
 address $NET_MGNT_IP
 netmask $NETMASK_ADD
 
-auto eth2
-iface eth2 inet static
-address $NET_DATA_VM_IP
-netmask $NETMASK_ADD
+# auto eth2
+# iface eth2 inet static
+# address $NET_DATA_VM_IP
+# netmask $NETMASK_ADD
 EOF
 
 echo "Cau hinh hostname cho NETWORK NODE"
