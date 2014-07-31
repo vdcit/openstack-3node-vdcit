@@ -312,8 +312,22 @@ Kết thúc cài đặt trên NETWORK NODE và chuyển sang cài đặt COMPUTE
 ### E. CÀI ĐẶT TRÊN COMPUTE NODE (COMPUTE1)
 Lưu ý: Cần thực hiện bước tải script từ github về như hướng dẫn ở bước B.1 và B.2 (nếu có thay đổi IP)
 Thực hiện các shell dưới để thiết lập hostname, gán ip và cài đặt các thành phần của nove trên máy COMPUTE NODE
+- Tải các gói cần thiết 
+```sh
+apt-get update
 
+apt-get install git -y
+
+git clone https://github.com/vdcit/openstack-3node-vdcit.git
+
+mv /root/openstack-3node-vdcit/script-ubuntu1204/ script-ubuntu1204
+
+cd script-ubuntu1204
+
+chmod +x *.sh
+```
 #### E.1. Đặt hostname, IP và các gói bổ trợ
+
 
     bash com1-ipdd.sh
 
@@ -361,20 +375,6 @@ COMPUTE node sẽ khởi động lại, cần phải đăng nhập bằng tải 
     
 
 #### E.2. Cài đặt các gói của NOVA cho COMPUTE NODE
-Tải các gói cần thiết 
-```sh
-apt-get update
-
-apt-get install git -y
-
-git clone https://github.com/vdcit/openstack-3node-vdcit.git
-
-mv /root/openstack-3node-vdcit/script-ubuntu1204/ script-ubuntu1204
-
-cd script-ubuntu1204
-
-chmod +x *.sh
-```
 
 Đăng nhập bằng tài khoản root và thực thi các lệnh dưới để tiến hành cài đặt nova
 
