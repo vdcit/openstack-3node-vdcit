@@ -3,6 +3,7 @@ HDCD - OpenStack Icehouse - Multi node
 **MỤC LỤC**  *được tạo bởi [DocToc](http://doctoc.herokuapp.com/)*
 
 ### Thông tin LAB 
+<!--
 #### A.0. Chuẩn bị trên VMware Workstation
 <b> Cấu hình các vmnet trong vmware workdstation như hình dưới. (Đảm bảo các dải thiết lập đúng với từng vmnet)</b>
 - VMNET0 - Chế độ bridge (mặc định). Nhận cùng dải IP card mạng trong laptop, 192.168.1.0/24
@@ -10,7 +11,7 @@ HDCD - OpenStack Icehouse - Multi node
 
 Vào tab "Edit" ==> Virtual Network Editor.
 ![Alt text](http://i.imgur.com/qQkp9EE.png)
-
+-->
 #### A.1. Mô hình triển khai trong môi trường VMware Workstation
 Thiết lập như mô hình dưới
 
@@ -27,8 +28,10 @@ Thiết lập như mô hình dưới
 - CPU: 02 (Có tích vào các chế độ ảo hóa)
 - NIC: 02 NICs (eth0 - chế độ vmnet2 ) (eth1 - chế độ brige). Đặt IP động 
 
+<!--
 Minh họa bằng hình như sau:
 ![Alt text](http://i.imgur.com/tlk95hq.png)
+-->
 
 ##### A.2.2. Cấu hình tối thiểu cho NETWORK NODE
 - HDD: 20GB 
@@ -37,9 +40,11 @@ Minh họa bằng hình như sau:
 - NICs: 03. eth0 chế độ vmnet2. eth1 chế chộ bridge . eth2 chế độ vmnet3. Đặt IP động.
 - Hostname: network
 
+<!--
 Minh họa bằng hình:
 
 ![Alt text](http://i.imgur.com/AeXsglg.png)
+-->
 
 ##### A.2.3. Cấu hình tối thiểu cho COMPUTE NODE (COMPUTE1)
 - HDD: 60GB
@@ -48,10 +53,11 @@ Minh họa bằng hình:
 - NICs: 03. eth0 chế độ vmnet2. eth1 chế chộ bridge . eth2 chế độ vmnet3. Đặt IP động.
 - Hostname: compute1 
 
+<!--
 Minh họa bằng hình:
 
 ![Alt text](http://i.imgur.com/zuNIVIE.png)
-
+-->
 ### B. Các bước thực hiện chung
 
 #### B.1. Thao tác trên tất cả các máy chủ
@@ -106,7 +112,8 @@ Sau khi thay đổi xong chuyển qua thực thi các file dưới trên từng 
 #### C.1. Thực thi script thiết lập IP, hostname ...
 
     bash control-1.ipadd.sh
-	
+
+<!--	
 Sau khi thực hiện script trên, máy Controller sẽ khởi động lại và có thông số như sau:
 
 <table>
@@ -137,7 +144,7 @@ Sau khi thực hiện script trên, máy Controller sẽ khởi động lại v�
     <td>Chế độ brige</td>
   </tr>
 </table>
-
+-->
 #### C.2. Cài đặt các gói MYSQL, NTP cho Controller Node
 Đăng nhập vào Controller bằng địa chỉ <b>CON_EXT_IP</b> khai báo trong file <b><i>config.cfg</i></b> là 192.168.1.71 bằng tài khoản root.
 Sau đó di chuyển vào thư mục script-ubuntu1204 bằng lệnh cd và thực thi bằng lệnh bash
