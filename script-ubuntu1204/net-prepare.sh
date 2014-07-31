@@ -54,9 +54,7 @@ sysctl -p
 
 echo "############ Cai cac goi cho network node ############ "
 sleep 7 
-apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms neutron-l3-agent neutron-dhcp-agent -y
-
-apt-get install openswan neutron-plugin-vpn-agent install neutron-lbaas-agent -y
+apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms neutron-l3-agent neutron-dhcp-agent openswan neutron-plugin-vpn-agent neutron-lbaas-agent -y
 
 #
 echo "############  CAU HINH CHO NETWORK NODE ############ "
