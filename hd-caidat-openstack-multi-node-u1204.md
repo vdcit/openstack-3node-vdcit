@@ -238,7 +238,20 @@ Tạm dừng việc cài đặt trên CONTROLLER NODE, sau khi cài xong NETWORK
 
 ### D. CÀI ĐẶT TRÊN NETWORK NODE
 - Cài đặt NEUTRON, ML2 và cấu hình GRE, sử dụng use case per-router per-tenant.
-- Lưu ý: Cần thực hiện bước tải script từ github về như hướng dẫn ở bước B.1 và B.2 (nếu có thay đổi IP)
+Tải các gói cần thiết 
+```sh
+apt-get update
+
+apt-get install git -y
+
+git clone https://github.com/vdcit/openstack-3node-vdcit.git
+
+mv /root/openstack-3node-vdcit/script-ubuntu1204/ script-ubuntu1204
+
+cd script-ubuntu1204
+
+chmod +x *.sh
+```
 
 #### D.1. Thiết lập IP, Hostname cho NETWORK NODE
 Script thực hiện việc cài đặt OpenvSwitch và khai báo br-int & br-ex cho OpenvSwitch
@@ -346,7 +359,23 @@ Sau khi thực hiện xong shell trên các NICs của COMPUTE NODE sẽ như sa
 
 COMPUTE node sẽ khởi động lại, cần phải đăng nhập bằng tải khoản root để thực hiện shell dưới
     
+
 #### E.2. Cài đặt các gói của NOVA cho COMPUTE NODE
+Tải các gói cần thiết 
+```sh
+apt-get update
+
+apt-get install git -y
+
+git clone https://github.com/vdcit/openstack-3node-vdcit.git
+
+mv /root/openstack-3node-vdcit/script-ubuntu1204/ script-ubuntu1204
+
+cd script-ubuntu1204
+
+chmod +x *.sh
+```
+
 Đăng nhập bằng tài khoản root và thực thi các lệnh dưới để tiến hành cài đặt nova
 
     cd script-ubuntu1204
