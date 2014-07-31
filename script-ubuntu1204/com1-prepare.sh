@@ -123,9 +123,6 @@ vncserver_proxyclient_address = $COM1_MGNT_IP
 novncproxy_base_url = http://$CON_EXT_IP:6080/vnc_auto.html
 glance_host = controller
 
-# Khai bao cho VPN, LB 
-service_plugins = router,lbaas,vpnaas
-
 [database]
 connection = mysql://nova:$ADMIN_PASS@controller/nova
 [keystone_authtoken]
@@ -137,9 +134,6 @@ admin_tenant_name = service
 admin_user = nova
 admin_password = $ADMIN_PASS
 
-[service_providers]
-service_provider=LOADBALANCER:Haproxy:neutron.services.loadbalancer.drivers.haproxy.plugin_driver.HaproxyOnHostPluginDriver:default
-service_provider=VPN:openswan:neutron.services.vpn.service_drivers.ipsec.IPsecVPNDriver:default
 EOF
 
 # Xoa file sql mac dinh
