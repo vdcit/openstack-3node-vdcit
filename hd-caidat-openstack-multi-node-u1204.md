@@ -93,9 +93,9 @@ apt-get update
 
 apt-get install git -y
 	
-git clone https://github.com/vietstacker/openstack-icehouse-multinode-ubuntu-v1.git
+git clone https://github.com/vdcit/openstack-3node-vdcit.git
 	
-mv /root/openstack-icehouse-multinode-ubuntu-v1/script-ubuntu1204/ script-ubuntu1204
+mv /root/openstack-3node-vdcit/script-ubuntu1204/ script-ubuntu1204
 	
 cd script-ubuntu1204
 	
