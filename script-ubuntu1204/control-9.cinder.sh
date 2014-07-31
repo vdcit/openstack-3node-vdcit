@@ -33,11 +33,11 @@ rpc_backend = cinder.openstack.common.rpc.impl_kombu
 rabbit_host = $CON_MGNT_IP
 rabbit_port = 5672
 rabbit_userid = guest
-rabbit_password = Welcome123
+rabbit_password = $ADMIN_PASS
 glance_host = $CON_MGNT_IP
  
 [database]
-connection = mysql://cinder:Welcome123@$CON_MGNT_IP/cinder
+connection = mysql://cinder:$ADMIN_PASS@$CON_MGNT_IP/cinder
  
 [keystone_authtoken]
 auth_uri = http://$CON_MGNT_IP:5000
@@ -46,7 +46,7 @@ auth_port = 35357
 auth_protocol = http
 admin_tenant_name = service
 admin_user = cinder
-admin_password = Welcome123
+admin_password = $ADMIN_PASS
 
 EOF
 
