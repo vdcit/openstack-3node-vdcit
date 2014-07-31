@@ -236,6 +236,7 @@ Script thực hiện việc cài đặt OpenvSwitch và khai báo br-int & br-ex
 - NETWORK NODE sẽ khởi động lại, cần phải đăng nhập lại sau khi khởi động xong bằng tài khoản root.
 - Thông số về IP và hostname trên NETWORK NODE như sau:
 
+<!--
 <table>
   <tr>
     <th>Hostname</th>
@@ -273,6 +274,7 @@ Script thực hiện việc cài đặt OpenvSwitch và khai báo br-int & br-ex
   </tr>
 </table>
 
+-->
 Chú ý: Shell sẽ chuyển eth1 sang chế độ promisc và đặt IP cho br-ex được tạo ra sau khi cài OpenvSwitch
 
 #### D.2. Thực thi việc cài đặt NEUTRON và cấu hình
@@ -306,7 +308,10 @@ chmod +x *.sh
 
     bash com1-ipdd.sh
 
-Sau khi thực hiện xong shell trên các NICs của COMPUTE NODE sẽ như sau: (giống với khai báo trong file <b><i>config.cfg</i></b>)
+Sau khi thực hiện xong shell trên các NICs của COMPUTE NODE sẽ như sau: (giống với khai báo trong file 
+
+<!--
+<b><i>config.cfg</i></b>)
 
 <table>
   <tr>
@@ -344,7 +349,7 @@ Sau khi thực hiện xong shell trên các NICs của COMPUTE NODE sẽ như sa
     <td>Chế độ VMNET3</td>
   </tr>
 </table>
-
+-->
 
 COMPUTE node sẽ khởi động lại, cần phải đăng nhập bằng tải khoản root để thực hiện shell dưới
     
