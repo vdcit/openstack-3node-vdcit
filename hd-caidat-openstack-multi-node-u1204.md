@@ -26,7 +26,6 @@ Thiết lập như mô hình dưới
 - HDD: 20GB trở lên
 - RAM: 2GB trở lên
 - CPU: 02 (Có tích vào các chế độ ảo hóa)
-- NIC: 02 NICs (eth0 - chế độ vmnet2 ) (eth1 - chế độ brige). Đặt IP động 
 
 <!--
 Minh họa bằng hình như sau:
@@ -36,8 +35,7 @@ Minh họa bằng hình như sau:
 ##### A.2.2. Cấu hình tối thiểu cho NETWORK NODE
 - HDD: 20GB 
 - RAM: 2GB
-- CPU 01 (có lựa chọn chế độ ảo hóa)
-- NICs: 03. eth0 chế độ vmnet2. eth1 chế chộ bridge . eth2 chế độ vmnet3. Đặt IP động.
+- CPU 01 
 - Hostname: network
 
 <!--
@@ -50,7 +48,6 @@ Minh họa bằng hình:
 - HDD: 60GB
 - RAM: 3GB 
 - CPU 2x2 (Có lựa chọn ảo hóa)
-- NICs: 03. eth0 chế độ vmnet2. eth1 chế chộ bridge . eth2 chế độ vmnet3. Đặt IP động.
 - Hostname: compute1 
 
 <!--
