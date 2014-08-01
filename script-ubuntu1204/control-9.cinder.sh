@@ -1,6 +1,8 @@
 #!/bin/bash -ex
 source config.cfg
 
+apt-get install lvm2 -y
+
 echo "########## Tao Physical Volume va Volume Group (tren disk sdb ) ##########"
 fdisk -l
 pvcreate /dev/sdb
