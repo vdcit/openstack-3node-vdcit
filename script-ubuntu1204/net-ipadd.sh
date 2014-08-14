@@ -37,10 +37,11 @@ iface eth1 inet manual
    down ip link set \$IFACE promisc off
    down ifconfig \$IFACE down
 
+# NIC MGNT
 auto eth0
 iface eth0 inet static
 address $NET_MGNT_IP
-netmask $NETMASK_ADD
+netmask $NETMASK_ADD_VM
 
 # auto eth2
 # iface eth2 inet static
