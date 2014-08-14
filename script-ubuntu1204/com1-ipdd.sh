@@ -23,7 +23,7 @@ iface lo inet loopback
 auto eth0
 iface eth0 inet static
 address $COM1_MGNT_IP
-netmask $NETMASK_ADD
+netmask $NETMASK_ADD_VM
 
 
 # EXT NETWORK
