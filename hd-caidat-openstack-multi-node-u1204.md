@@ -393,7 +393,7 @@ Khởi động lần lượt các node
 - COMPUTE NODE 
 Và đăng nhập vào HORIZON ở bước F.1 và sử dụng OpenStack
 
-### KÊT THÚC CHÚC VUI !
+### KÊT THÚC - CHÚC VUI !
 
 
 
