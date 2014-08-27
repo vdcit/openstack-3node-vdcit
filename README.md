@@ -1,4 +1,4 @@
-openstack-3node-vdcit
+Script cài đặt OpenStack
 =====================
 
 # Hướng dẫn thực hiện script cài đặt OpenStack
