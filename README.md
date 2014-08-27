@@ -5,4 +5,6 @@ openstack-3node-vdcit
 
 ## Script trên ubuntu 12.04
 
+https://github.com/vdcit/openstack-3node-vdcit/blob/master/hd-caidat-openstack-multi-node-u1204.md
+
 ## Script trên ubuntu 14.04
