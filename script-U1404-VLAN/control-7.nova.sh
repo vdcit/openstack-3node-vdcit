@@ -7,7 +7,7 @@
 
 source config.cfg
 
-echo "########## CAI DAT NOVA TREN CONTROLLER ##########"
+echo "########## CAI DAT NOVA TREN $HOST_NAME ##########"
 sleep 5 
 apt-get -y install nova-api nova-cert nova-conductor nova-consoleauth nova-novncproxy nova-scheduler python-novaclient
 
@@ -40,7 +40,7 @@ auth_strategy = keystone
 
 # Khai bao cho RABBITMQ
 rpc_backend = rabbit
-rabbit_host = controller
+rabbit_host = $HOST_NAME
 rabbit_password = $RABBIT_PASS
 
 # Cau hinh cho VNC
@@ -56,12 +56,12 @@ libvirt_inject_password = True
 enable_instance_password = True
 
 network_api_class = nova.network.neutronv2.api.API
-neutron_url = http://controller:9696
+neutron_url = http://$HOST_NAME:9696
 neutron_auth_strategy = keystone
 neutron_admin_tenant_name = service
 neutron_admin_username = neutron
 neutron_admin_password = $ADMIN_PASS
-neutron_admin_auth_url = http://controller:35357/v2.0
+neutron_admin_auth_url = http://$HOST_NAME:35357/v2.0
 linuxnet_interface_driver = nova.network.linux_net.LinuxOVSInterfaceDriver
 firewall_driver = nova.virt.firewall.NoopFirewallDriver
 security_group_api = neutron
@@ -69,11 +69,11 @@ service_neutron_metadata_proxy = true
 neutron_metadata_proxy_shared_secret = $METADATA_SECRET
 
 [database]
-connection = mysql://nova:$ADMIN_PASS@controller/nova
+connection = mysql://nova:$ADMIN_PASS@$HOST_NAME/nova
 
 [keystone_authtoken]
-auth_uri = http://controller:5000
-auth_host = controller
+auth_uri = http://$HOST_NAME:5000
+auth_host = $HOST_NAME
 auth_port = 35357
 auth_protocol = http
 admin_tenant_name = service

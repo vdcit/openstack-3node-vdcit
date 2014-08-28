@@ -18,7 +18,7 @@ touch $fileglanceapicontrol
 cat << EOF > $fileglanceapicontrol
 [DEFAULT]
 rpc_backend = rabbit
-rabbit_host = controller
+rabbit_host = $HOST_NAME
 rabbit_password = $RABBIT_PASS
 default_store = file
 bind_host = 0.0.0.0
@@ -73,11 +73,11 @@ scrub_time = 43200
 scrubber_datadir = /var/lib/glance/scrubber
 image_cache_dir = /var/lib/glance/image-cache/
 [database]
-connection = mysql://glance:$ADMIN_PASS@controller/glance
+connection = mysql://glance:$ADMIN_PASS@$HOST_NAME/glance
 backend = sqlalchemy
 [keystone_authtoken]
-auth_uri = http://controller:5000
-auth_host = controller
+auth_uri = http://$HOST_NAME:5000
+auth_host = $HOST_NAME
 auth_port = 35357
 auth_protocol = http
 admin_tenant_name = service
@@ -107,11 +107,11 @@ backlog = 4096
 api_limit_max = 1000
 limit_param_default = 25
 [database]
-connection = mysql://glance:$ADMIN_PASS@controller/glance
+connection = mysql://glance:$ADMIN_PASS@$HOST_NAME/glance
 backend = sqlalchemy
 [keystone_authtoken]
-auth_uri = http://controller:5000
-auth_host = controller
+auth_uri = http://$HOST_NAME:5000
+auth_host = $HOST_NAME
 auth_port = 35357
 auth_protocol = http
 admin_tenant_name = service
