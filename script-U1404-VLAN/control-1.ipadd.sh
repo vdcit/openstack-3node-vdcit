@@ -16,7 +16,9 @@ iface lo inet loopback
 auto eth0
 iface eth0 inet static
 address $CON_MGNT_IP
-netmask $NETMASK_ADD_VM
+netmask $NETMASK_ADD
+gateway $GATEWAY_IP
+dns-nameservers 8.8.8.8
 
 
 # VLANs NETWORK
@@ -29,7 +31,7 @@ EOF
 
 echo "Cau hinh hostname cho $HOST_NAME NODE"
 sleep 3
-echo "$HOST_NAME" > /etc/hostname
+echo "controller1" > /etc/hostname
 hostname -F /etc/hostname
 
 echo "##### Khoi dong lai may #####"
