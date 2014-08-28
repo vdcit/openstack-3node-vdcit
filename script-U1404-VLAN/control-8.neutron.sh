@@ -15,12 +15,12 @@ echo "net.ipv4.conf.all.rp_filter=0" >> /etc/sysctl.conf
 echo "net.ipv4.conf.default.rp_filter=0" >> /etc/sysctl.conf
 sysctl -p 
 
-echo "########## CAI DAT NEUTRON TREN CONTROLLER ##########"
+echo "########## CAI DAT NEUTRON TREN $HOST_NAME ##########"
 sleep 5
 apt-get -y install neutron-server neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms neutron-l3-agent neutron-dhcp-agent
 
-######## SAO LUU CAU HINH NEUTRON.CONF CHO CONTROLLER##################"
-echo "########## SUA FILE CAU HINH  NEUTRON CHO CONTROLLER ##########"
+######## SAO LUU CAU HINH NEUTRON.CONF CHO $HOST_NAME##################"
+echo "########## SUA FILE CAU HINH  NEUTRON CHO $HOST_NAME ##########"
 sleep 7
 
 #
@@ -73,8 +73,8 @@ service_provider=VPN:openswan:neutron.services.vpn.service_drivers.ipsec.IPsecVP
 EOF
 
 
-######## SAO LUU CAU HINH ML2 CHO CONTROLLER##################"
-echo "########## SUA FILE CAU HINH  ML2 CHO CONTROLLER ##########"
+######## SAO LUU CAU HINH ML2 CHO $HOST_NAME##################"
+echo "########## SUA FILE CAU HINH  ML2 CHO $HOST_NAME ##########"
 sleep 7
 
 controlML2=/etc/neutron/plugins/ml2/ml2_conf.ini
@@ -127,6 +127,27 @@ use_namespaces = True
 verbose = True
 EOF
 
+echo "############  Sua file cau hinh METADATA AGENT ############"
+sleep 7 
+#
+netmetadata=/etc/neutron/metadata_agent.ini
+
+test -f $netmetadata.orig || cp $netmetadata $netmetadata.orig
+rm $netmetadata
+touch $netmetadata
+
+cat << EOF >> $netmetadata
+[DEFAULT]
+auth_url = http://$HOST_NAME:5000/v2.0
+auth_region = regionOne
+admin_tenant_name = service
+admin_user = neutron
+admin_password = $ADMIN_PASS
+nova_metadata_ip = $HOST_NAME
+metadata_proxy_shared_secret = $METADATA_SECRET
+verbose = True
+EOF
+#
 
 echo "########## KHOI DONG LAI NOVA ##########"
 sleep 7 
