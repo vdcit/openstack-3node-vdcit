@@ -38,6 +38,10 @@ volumes_path=/var/lib/nova/volumes
 enabled_apis=ec2,osapi_compute,metadata
 auth_strategy = keystone
 
+# Cho phep thay doi kich thuoc may ao
+allow_resize_to_same_host=True
+scheduler_default_filters=AllHostsFilter
+
 # Khai bao cho RABBITMQ
 rpc_backend = rabbit
 rabbit_host = controller
