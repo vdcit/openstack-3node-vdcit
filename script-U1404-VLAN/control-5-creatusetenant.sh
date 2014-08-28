@@ -124,7 +124,7 @@ cp  admin-openrc.sh /root/admin-openrc.sh
 # export OS_AUTH_URL=http://$HOST_NAME:35357/v2.0
 
 echo "########## Hoan thanh cai dat keystone ##########"
-
+echo "########## Thu thi lenh source admin-openrc.sh ##########"
 # echo "#################### Kiem tra bien moi truong ##################"
 # sleep 5
 # keystone user-list

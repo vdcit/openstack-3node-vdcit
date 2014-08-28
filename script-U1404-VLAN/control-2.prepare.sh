@@ -10,7 +10,7 @@ rm $iphost
 touch $iphost
 cat << EOF >> $iphost
 127.0.0.1       localhost
-$CON_MGNT_IP    $HOST_NAME1
+$CON_MGNT_IP    $HOST_NAME
 $COM1_MGNT_IP      compute1
 # 10.10.10.74      compute2
 # $NET_MGNT_IP     network
@@ -34,7 +34,7 @@ rm /etc/ntp.conf
 cat /etc/ntp.conf.bka | grep -v ^# | grep -v ^$ >> /etc/ntp.conf
 #
 sed -i 's/server/#server/' /etc/ntp.conf
-echo "server $HOST_NAME1" >> /etc/ntp.conf
+echo "server $HOST_NAME" >> /etc/ntp.conf
 
 echo "Cai dat RABBITMQ  va cau hinh RABBITMQ"
 sleep 3
