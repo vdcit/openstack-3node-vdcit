@@ -24,7 +24,7 @@ log_dir = /var/log/keystone
 [catalog]
 [credential]
 [database]
-connection = mysql://keystone:$ADMIN_PASS@$HOST_NAME/keystone
+connection = mysql://keystone:$ADMIN_PASS@controller/keystone
 [ec2]
 [endpoint_filter]
 [federation]
