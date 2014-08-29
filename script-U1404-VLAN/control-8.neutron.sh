@@ -31,7 +31,7 @@ touch $controlneutron
 cat << EOF >> $controlneutron
 [DEFAULT]
 state_path = /var/lib/neutron
-lock_path = $state_path/lock
+lock_path = \$state_path/lock
 core_plugin = ml2
 service_plugins = router
 auth_strategy = keystone
@@ -61,7 +61,7 @@ auth_protocol = http
 admin_tenant_name = service
 admin_user = neutron
 admin_password = $ADMIN_PASS
-signing_dir = $state_path/keystone-signing
+signing_dir = \$state_path/keystone-signing
 
 [database]
 connection = mysql://neutron:$ADMIN_PASS@$HOST_NAME/neutron
