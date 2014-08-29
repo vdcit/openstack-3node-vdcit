@@ -15,12 +15,12 @@ echo "net.ipv4.conf.all.rp_filter=0" >> /etc/sysctl.conf
 echo "net.ipv4.conf.default.rp_filter=0" >> /etc/sysctl.conf
 sysctl -p 
 
-echo "########## CAI DAT NEUTRON TREN $HOST_NAME ##########"
+echo "########## CAI DAT NEUTRON TREN $CON_MGNT_IP ##########"
 sleep 5
 apt-get -y install neutron-server neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms neutron-l3-agent neutron-dhcp-agent
 
-######## SAO LUU CAU HINH NEUTRON.CONF CHO $HOST_NAME##################"
-echo "########## SUA FILE CAU HINH  NEUTRON CHO $HOST_NAME ##########"
+######## SAO LUU CAU HINH NEUTRON.CONF CHO $CON_MGNT_IP##################"
+echo "########## SUA FILE CAU HINH  NEUTRON CHO $CON_MGNT_IP ##########"
 sleep 7
 
 #
@@ -43,11 +43,11 @@ rabbit_userid = guest
 notification_driver = neutron.openstack.common.notifier.rpc_notifier
 notify_nova_on_port_status_changes = True
 notify_nova_on_port_data_changes = True
-nova_url = http://$HOST_NAME:8774/v2/v2
+nova_url = http://$CON_MGNT_IP:8774/v2/v2
 nova_admin_username = nova
 nova_admin_tenant_id = $SERVICE_ID
 nova_admin_password = $ADMIN_PASS
-nova_admin_auth_url = http://$HOST_NAME:35357/v2.0
+nova_admin_auth_url = http://$CON_MGNT_IP:35357/v2.0
 
 [quotas]
 
@@ -64,7 +64,7 @@ admin_password = $ADMIN_PASS
 signing_dir = \$state_path/keystone-signing
 
 [database]
-connection = mysql://neutron:$ADMIN_PASS@$HOST_NAME/neutron
+connection = mysql://neutron:$ADMIN_PASS@$CON_MGNT_IP/neutron
 
 [service_providers]
 service_provider=LOADBALANCER:Haproxy:neutron.services.loadbalancer.drivers.haproxy.plugin_driver.HaproxyOnHostPluginDriver:default
@@ -73,8 +73,8 @@ service_provider=VPN:openswan:neutron.services.vpn.service_drivers.ipsec.IPsecVP
 EOF
 
 
-######## SAO LUU CAU HINH ML2 CHO $HOST_NAME##################"
-echo "########## SUA FILE CAU HINH  ML2 CHO $HOST_NAME ##########"
+######## SAO LUU CAU HINH ML2 CHO $CON_MGNT_IP##################"
+echo "########## SUA FILE CAU HINH  ML2 CHO $CON_MGNT_IP ##########"
 sleep 7
 
 controlML2=/etc/neutron/plugins/ml2/ml2_conf.ini
@@ -138,12 +138,12 @@ touch $netmetadata
 
 cat << EOF >> $netmetadata
 [DEFAULT]
-auth_url = http://$HOST_NAME:5000/v2.0
+auth_url = http://$CON_MGNT_IP:5000/v2.0
 auth_region = regionOne
 admin_tenant_name = service
 admin_user = neutron
 admin_password = $ADMIN_PASS
-nova_metadata_ip = $HOST_NAME
+nova_metadata_ip = $CON_MGNT_IP
 metadata_proxy_shared_secret = $METADATA_SECRET
 verbose = True
 EOF
