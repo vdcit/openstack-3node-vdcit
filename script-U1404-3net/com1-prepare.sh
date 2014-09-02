@@ -123,6 +123,11 @@ vncserver_proxyclient_address = $COM1_MGNT_IP
 novncproxy_base_url = http://$CON_EXT_IP:6080/vnc_auto.html
 glance_host = controller
 
+# Cho phep chen password khi khoi tao
+libvirt_inject_password = True
+libvirt_inject_partition = -1
+enable_instance_password = True
+
 # Cho phep thay doi kich thuoc may ao
 allow_resize_to_same_host=True
 scheduler_default_filters=AllHostsFilter
