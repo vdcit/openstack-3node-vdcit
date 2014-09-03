@@ -16,7 +16,7 @@ apt-get install git -y
 	
 git clone https://github.com/vdcit/openstack-3node-vdcit.git
 	
-mv /root/openstack-3node-vdcit/script-U1404-3net/ sscript-U1404-3net
+mv /root/openstack-3node-vdcit/script-U1404-3net/ script-U1404-3net
 	
 cd script-U1404-3net
 	
