@@ -24,7 +24,7 @@ chmod +x *.sh
 ```
 #### B.2. Sửa file khai báo các thông số trước khi thực thi shell
 Trước lúc chỉnh sửa, KHÔNG cần gán IP tĩnh cho các NICs trên từng máy chủ.
-Dùng vi để sửa file config.cfg nằm trong thư mục script-ubuntu1204 với các IP theo ý bạn hoặc giữ nguyên các IP và đảm bảo chúng chưa được gán cho máy nào trong mạng của bạn.
+Dùng vi để sửa file config.cfg nằm trong thư mục script-U1404-3net với các IP theo ý bạn hoặc giữ nguyên các IP và đảm bảo chúng chưa được gán cho máy nào trong mạng của bạn.
 
 ### C. Thực hiện trên CONTROLLER NODE
 #### C.1. Thực thi script thiết lập IP, hostname ...
