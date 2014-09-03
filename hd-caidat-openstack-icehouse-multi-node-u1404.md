@@ -122,10 +122,9 @@ GLANCE dùng để cung cấp image template để khởi tạo máy ảo
     bash control-7.nova.sh
     
 #### C.8 Cài đặt NEUTRON
-
-
-    bash control-8.neutron.sh
-    
+```sh
+bash control-8.neutron.sh
+```    
 
 Tạm dừng việc cài đặt trên CONTROLLER NODE, sau khi cài xong NETWORK NODE và COMPUTE1 NODE sẽ quay lại để cài HORIZON và tạo các network, router.
 
