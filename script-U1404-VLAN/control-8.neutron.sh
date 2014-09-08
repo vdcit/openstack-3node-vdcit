@@ -25,6 +25,12 @@ apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-
 
 apt-get install openswan neutron-plugin-vpn-agent neutron-lbaas-agent -y
 
+
+# Add them cac port cho OVS
+ovs-vsctl add-br br-int
+ovs-vsctl add-br br-ex
+ovs-vsctl add-port br-ex eth1
+
 ######## SAO LUU CAU HINH NEUTRON.CONF CHO $CON_MGNT_IP##################"
 echo "########## SUA FILE CAU HINH  NEUTRON CHO $CON_MGNT_IP ##########"
 sleep 7
@@ -161,8 +167,8 @@ service neutron-plugin-openvswitch-agent restart
 service neutron-l3-agent restart
 service neutron-dhcp-agent restart
 service neutron-metadata-agent restart
-service neutron-lbaas-agent restart
-service neutron-vpn-agent restart
+# service neutron-lbaas-agent restart
+# service neutron-vpn-agent restart
 
 sleep 15
 service openvswitch-switch restart
@@ -170,8 +176,8 @@ service neutron-plugin-openvswitch-agent restart
 service neutron-l3-agent restart
 service neutron-dhcp-agent restart
 service neutron-metadata-agent restart
-service neutron-lbaas-agent restart
-service neutron-vpn-agent restart
+# service neutron-lbaas-agent restart
+# service neutron-vpn-agent restart
 
 
 sed -i "s/exit 0/# exit 0/g" /etc/rc.local
@@ -180,8 +186,8 @@ echo "service neutron-plugin-openvswitch-agent restart" >> /etc/rc.local
 echo "service neutron-l3-agent restart" >> /etc/rc.local
 echo "service neutron-dhcp-agent restart" >> /etc/rc.local
 echo "service neutron-metadata-agent restart" >> /etc/rc.local
-echo "service neutron-lbaas-agent restart" >> /etc/rc.local
-echo "service neutron-vpn-agent restart" >> /etc/rc.local
+# echo "service neutron-lbaas-agent restart" >> /etc/rc.local
+# echo "service neutron-vpn-agent restart" >> /etc/rc.local
 echo "exit 0" >> /etc/rc.local
 
 
