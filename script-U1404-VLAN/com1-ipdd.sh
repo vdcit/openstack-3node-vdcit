@@ -26,20 +26,12 @@ address $COM1_MGNT_IP
 netmask $NETMASK_ADD_VM
 
 
-# EXT NETWORK
+# VLANs NETWORK
 auto eth1
-iface eth1 inet static
-address $COM1_EXT_IP
-netmask $NETMASK_ADD
-gateway $GATEWAY_IP
-dns-nameservers 8.8.8.8
-
-# DATA NETWORK
-# auto eth2
-# iface eth2 inet static
-# address $COM1_DATA_VM_IP
-# netmask $NETMASK_ADD
-
+iface eth1 inet manual
+up ifconfig \$IFACE 0.0.0.0 up
+up ip link set \$IFACE promisc on
+down ifconfig \$IFACE 0.0.0.0 down
 EOF
 
 #Khoi dong lai cac card mang vua dat
