@@ -15,9 +15,15 @@ echo "net.ipv4.conf.all.rp_filter=0" >> /etc/sysctl.conf
 echo "net.ipv4.conf.default.rp_filter=0" >> /etc/sysctl.conf
 sysctl -p 
 
+
+
 echo "########## CAI DAT NEUTRON TREN $CON_MGNT_IP ##########"
 sleep 5
 apt-get -y install neutron-server neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms neutron-l3-agent neutron-dhcp-agent
+
+apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms neutron-l3-agent neutron-dhcp-agent -y
+
+apt-get install openswan neutron-plugin-vpn-agent neutron-lbaas-agent -y
 
 ######## SAO LUU CAU HINH NEUTRON.CONF CHO $CON_MGNT_IP##################"
 echo "########## SUA FILE CAU HINH  NEUTRON CHO $CON_MGNT_IP ##########"
@@ -147,17 +153,37 @@ metadata_proxy_shared_secret = $ADMIN_PASS
 EOF
 #
 
-echo "########## KHOI DONG LAI NOVA ##########"
-sleep 7 
-service nova-api restart
-service nova-scheduler restart
-service nova-conductor restart
+echo "############  Khoi dong lai OpenvSwitch ############"
+sleep 7
 
-echo "########## KHOI DONG LAI NEUTRON ##########"
-sleep 7 
-service neutron-server restart
+service openvswitch-switch restart
 service neutron-plugin-openvswitch-agent restart
+service neutron-l3-agent restart
 service neutron-dhcp-agent restart
 service neutron-metadata-agent restart
+service neutron-lbaas-agent restart
+service neutron-vpn-agent restart
+
+sleep 15
+service openvswitch-switch restart
+service neutron-plugin-openvswitch-agent restart
+service neutron-l3-agent restart
+service neutron-dhcp-agent restart
+service neutron-metadata-agent restart
+service neutron-lbaas-agent restart
+service neutron-vpn-agent restart
+
+
+sed -i "s/exit 0/# exit 0/g" /etc/rc.local
+echo "service openvswitch-switch restart" >> /etc/rc.local
+echo "service neutron-plugin-openvswitch-agent restart" >> /etc/rc.local
+echo "service neutron-l3-agent restart" >> /etc/rc.local
+echo "service neutron-dhcp-agent restart" >> /etc/rc.local
+echo "service neutron-metadata-agent restart" >> /etc/rc.local
+echo "service neutron-lbaas-agent restart" >> /etc/rc.local
+echo "service neutron-vpn-agent restart" >> /etc/rc.local
+echo "exit 0" >> /etc/rc.local
+
+
 
 
