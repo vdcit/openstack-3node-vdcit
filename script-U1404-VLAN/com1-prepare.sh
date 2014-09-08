@@ -252,6 +252,9 @@ sleep 5
 ########
 # Tao integration bridge
 ovs-vsctl add-br br-int
+ovs-vsctl add-br br-eth1
+ovs-vsctl add-port br-eth1 eth1
+
 
 
 # fix loi libvirtError: internal error: no supported architecture for os type 'hvm'
