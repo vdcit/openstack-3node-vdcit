@@ -32,18 +32,20 @@ cat << EOF >> $controlneutron
 [DEFAULT]
 state_path = /var/lib/neutron
 lock_path = \$state_path/lock
-core_plugin = ml2
-service_plugins = router
+core_plugin = neutron.plugins.ml2.plugin.Ml2Plugin
+service_plugins = neutron.services.l3_router.l3_router_plugin.L3RouterPlugin
 auth_strategy = keystone
-allow_overlapping_ips = True
+dhcp_agent_notification = True
 rpc_backend = neutron.openstack.common.rpc.impl_kombu
+control_exchange = neutron
 rabbit_host = $CON_MGNT_IP
 rabbit_password = $ADMIN_PASS
+rabbit_port = 5672
 rabbit_userid = guest
 notification_driver = neutron.openstack.common.notifier.rpc_notifier
 notify_nova_on_port_status_changes = True
 notify_nova_on_port_data_changes = True
-nova_url = http://$CON_MGNT_IP:8774/v2/v2
+nova_url = http://$CON_MGNT_IP:8774/v2
 nova_admin_username = nova
 nova_admin_tenant_id = $SERVICE_ID
 nova_admin_password = $ADMIN_PASS
@@ -55,7 +57,7 @@ nova_admin_auth_url = http://$CON_MGNT_IP:35357/v2.0
 root_helper = sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf
 
 [keystone_authtoken]
-auth_host = 127.0.0.1
+auth_host = $CON_MGNT_IP
 auth_port = 35357
 auth_protocol = http
 admin_tenant_name = service
@@ -64,11 +66,9 @@ admin_password = $ADMIN_PASS
 signing_dir = \$state_path/keystone-signing
 
 [database]
-connection = mysql://neutron:$ADMIN_PASS@$CON_MGNT_IP/neutron
+connection = mysql://neutron:$MYSQL_PASS@$CON_MGNT_IP/neutron
 
 [service_providers]
-service_provider=LOADBALANCER:Haproxy:neutron.services.loadbalancer.drivers.haproxy.plugin_driver.HaproxyOnHostPluginDriver:default
-service_provider=VPN:openswan:neutron.services.vpn.service_drivers.ipsec.IPsecVPNDriver:default
 
 EOF
 
@@ -84,14 +84,13 @@ touch $controlML2
 
 cat << EOF >> $controlML2
 [ml2]
-type_drivers = vlan
-tenant_network_types = vlan
+type_drivers = flat,vlan,gre
+tenant_network_types = vlan,gre
 mechanism_drivers = openvswitch
 
 [ml2_type_flat]
 
 [ml2_type_vlan]
-# "vm network" - tag range, from 200 to 400
 network_vlan_ranges = physnet1:10:40
 
 [ml2_type_gre]
@@ -103,11 +102,9 @@ enable_security_group = True
 firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver
 
 [ovs]
-enable_tunneling = False
 tenant_network_type = vlan
-integration_bridge = br-int
-network_vlan_ranges = physnet1:10:40
 bridge_mappings = physnet1:br-eth1
+
 EOF
 
 echo "############  Sua file cau hinh DHCP AGENT ############ "
@@ -138,14 +135,15 @@ touch $netmetadata
 
 cat << EOF >> $netmetadata
 [DEFAULT]
-auth_url = http://$CON_MGNT_IP:5000/v2.0
+auth_url = http://$CON_MGNT_IP:35357/v2.0
 auth_region = regionOne
 admin_tenant_name = service
 admin_user = neutron
 admin_password = $ADMIN_PASS
 nova_metadata_ip = $CON_MGNT_IP
-metadata_proxy_shared_secret = $METADATA_SECRET
-verbose = True
+nova_metadata_port = 8775
+metadata_proxy_shared_secret = $ADMIN_PASS
+
 EOF
 #
 
