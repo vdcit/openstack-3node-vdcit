@@ -209,28 +209,32 @@ rm $comfileml2
 touch $comfileml2
 #Chen noi dung file  vao /etc/neutron/plugins/ml2/ml2_conf.ini
 cat << EOF > $comfileml2
-[ml2]
-type_drivers = gre
-tenant_network_types = gre
-mechanism_drivers = openvswitch
+[ml2] 
+type_drivers = vlan 
+tenant_network_types = vlan 
+mechanism_drivers = openvswitch 
 
-[ml2_type_flat]
+[ml2_type_flat] 
 
-[ml2_type_vlan]
+[ml2_type_vlan] 
+# "vm network" - tag range, from 10 to 40
+network_vlan_ranges = physnet1:10:40
 
-[ml2_type_gre]
-tunnel_id_ranges = 1:1000
+[ml2_type_gre] 
 
-[ml2_type_vxlan]
+[ml2_type_vxlan] 
 
-[ovs]
-local_ip = $COM1_DATA_VM_IP
-tunnel_type = gre
-enable_tunneling = True
+[securitygroup] 
+enable_security_group = True 
+firewall_driver = 
+neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver 
 
-[securitygroup]
-firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver
-enable_security_group = True
+[ovs] 
+enable_tunneling = False 
+tenant_network_type = vlan 
+integration_bridge = br-int 
+network_vlan_ranges = physnet1:10:40
+bridge_mappings = physnet1:br-eth1 
 
 EOF
 
