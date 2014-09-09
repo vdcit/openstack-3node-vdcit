@@ -29,7 +29,7 @@ apt-get install openswan neutron-plugin-vpn-agent neutron-lbaas-agent -y
 # Add them cac port cho OVS
 ovs-vsctl add-br br-int
 ovs-vsctl add-br br-ex
-ovs-vsctl add-port br-ex eth1
+ovs-vsctl add-port br-ex em2
 
 ######## SAO LUU CAU HINH NEUTRON.CONF CHO $CON_MGNT_IP##################"
 echo "########## SUA FILE CAU HINH  NEUTRON CHO $CON_MGNT_IP ##########"
