@@ -162,6 +162,7 @@ EOF
 echo "############  Khoi dong lai OpenvSwitch ############"
 sleep 7
 
+service neutron-server restart
 service openvswitch-switch restart
 service neutron-plugin-openvswitch-agent restart
 service neutron-l3-agent restart
@@ -171,6 +172,7 @@ service neutron-metadata-agent restart
 # service neutron-vpn-agent restart
 
 sleep 15
+service neutron-server restart
 service openvswitch-switch restart
 service neutron-plugin-openvswitch-agent restart
 service neutron-l3-agent restart
@@ -181,6 +183,7 @@ service neutron-metadata-agent restart
 
 
 sed -i "s/exit 0/# exit 0/g" /etc/rc.local
+echo "service neutron-server restart" >> /etc/rc.local
 echo "service openvswitch-switch restart" >> /etc/rc.local
 echo "service neutron-plugin-openvswitch-agent restart" >> /etc/rc.local
 echo "service neutron-l3-agent restart" >> /etc/rc.local
