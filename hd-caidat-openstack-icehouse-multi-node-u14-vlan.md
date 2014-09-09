@@ -3,6 +3,7 @@
 
 # Mô hình
 
+![Alt text](http://i.imgur.com/fCnidK8.png)
 
 # Các bước thực hiện
 
