@@ -108,7 +108,7 @@ firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewal
 
 [ovs]
 tenant_network_type = vlan
-bridge_mappings = physnet1:br-em2
+bridge_mappings = physnet1:br-eth1
 
 EOF
 
