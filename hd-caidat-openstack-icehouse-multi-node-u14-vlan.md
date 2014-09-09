@@ -152,7 +152,7 @@ root@controller1:~/script-U1404-VLAN# neutron net-list
 #### Tao may ao
 - Thay dòng `ID_cua_cac_network_o_tren` vào trong dòng lệnh dưới để tạo máy ảo.
 ```sh
-nova boot --image cirros-0.3.2-x86_64 --flavor m1.tiny --nic net-id=ID_cua_cac_network_o_tren VLAN10-vm1
+nova boot VLAN10-vm1 --image cirros-0.3.2-x86_64  --flavor m1.tiny --nic net-id=ID_cua_cac_network_o_tren 
 ```
 
 ### Cài đặt Horizon
