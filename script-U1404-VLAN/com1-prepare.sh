@@ -3,16 +3,7 @@
 
 source config.cfg
 
-# Cau hinh cho file /etc/hosts
-# COM1_IP_MGNT=10.10.10.73
-# COM1_IP_DATA=10.10.20.73
-# COM2_IP_MGNT=10.10.10.74
-# COM2_IP_DATA=10.10.20.74
-# CON_IP_EX=192.168.1.71
-# CON_IP_MGNT=10.10.10.71
-# ADMIN_PASS=a
-# RABBIT_PASS=a
-#
+
 iphost=/etc/hosts
 test -f $iphost.orig || cp $iphost $iphost.orig
 rm $iphost
@@ -249,7 +240,7 @@ firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewal
 
 [ovs]
 tenant_network_type = vlan
-bridge_mappings = physnet1:br-eth1
+bridge_mappings = physnet1:br-em2
 
 EOF
 
@@ -267,8 +258,8 @@ sleep 5
 ########
 # Tao integration bridge
 ovs-vsctl add-br br-int
-ovs-vsctl add-br br-eth1
-ovs-vsctl add-port br-eth1 eth1
+ovs-vsctl add-br br-em2
+ovs-vsctl add-port br-em2 em2
 
 
 
