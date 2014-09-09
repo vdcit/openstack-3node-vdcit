@@ -73,8 +73,18 @@ bash control-6.glance.sh
 bash control-7.nova.sh
 ```
 
+### Cài đặt NEUTRON
+```sh
+bash control-8.neutron.sh
+```
+
+### Cài đặt CINDER
+```sh
+bash control-9.neutron.sh
+```
 
 ## Cài đặt trên COMPUTE 1
+Thực hiện trên COMPUTE 1
 ```sh
 apt-get install git -y
 
@@ -102,3 +112,47 @@ cd script-U1404-VLAN/
 bash com1-prepare.sh
 ls
 ```
+
+###  Tạo các network cho OpenStack
+Thực thi trên CONTROLLER NODE
+- Tạo Network cho VLAN 10
+```sh
+neutron net-create vlan10 --provider:network_type vlan --provider:physical_network physnet1 --provider:segmentation_id 10 --shared --router:external=True
+```
+- Tạo subnnet cho VLAN 10 vừa tạo ở trên
+ ```sh
+neutron subnet-create --name subnet10 --allocation-pool start=192.168.10.10,end=192.168.10.254 vlan10 192.168.10.0/24 --dns_nameservers list=true 8.8.8.8
+```
+
+- Tạo Network cho VLAN 20
+```sh
+neutron net-create vlan20 --provider:network_type vlan --provider:physical_network physnet1 --provider:segmentation_id 20 --shared --router:external=True
+```
+- Tạo subnnet cho VLAN 20 vừa tạo ở trên
+```sh
+neutron subnet-create --name subnet20 --allocation-pool start=192.168.20.10,end=192.168.20.254 vlan20 192.168.20.0/24 --dns_nameservers list=true 8.8.8.8
+```
+
+- Kiểm tra các network vừa tạo bằng lệnh dưới
+```sh
+neutron net-list
+```
+
+
+#### Tao may ao
+- Thay dòng `ID_cua_cac_network_o_tren` vào trong dòng lệnh dưới để tạo máy ảo.
+```sh
+nova boot --image cirros-0.3.2-x86_64 --flavor m1.tiny --nic net-id=ID_cua_cac_network_o_tren VLAN10-vm1
+```
+
+### Cài đặt Horizon
+Sau khi cài đặt trên COMPUTE 1 xong, quay trở lại node Controller để cài đặt horizon
+
+```sh
+bash /root/script-U1404-VLAN/control-horizon.sh
+```
+
+- Kết thúc việc cài đặt horizon - bạn sẽ nhận được thông báo và URL truy cập vào hệ thống.
+- Bắt đầu sử dụng hệ thống
+
+
