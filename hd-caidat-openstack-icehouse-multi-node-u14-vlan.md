@@ -1,4 +1,23 @@
- # hd-caidat-openstack-icehouse-multi-node-u14-vlan.md
+# MỤC LỤC
+
+- [Mô hình](#user-content-m%C3%B4-h%C3%ACnh)
+- [Các bước thực hiện](#user-content-c%C3%A1c-b%C6%B0%E1%BB%9Bc-th%E1%BB%B1c-hi%E1%BB%87n)
+	- [Cài đặt trên Controller](#user-content-c%C3%A0i-%C4%91%E1%BA%B7t-tr%C3%AAn-controller)
+		- [Thiết lập địa chỉ IP cho các NICs](#user-content-thi%E1%BA%BFt-l%E1%BA%ADp-%C4%91%E1%BB%8Ba-ch%E1%BB%89-ip-cho-c%C3%A1c-nics)
+		- [Cài đặt các gói chuẩn bị trên CONTROLLER](#user-content-c%C3%A0i-%C4%91%E1%BA%B7t-c%C3%A1c-g%C3%B3i-chu%E1%BA%A9n-b%E1%BB%8B-tr%C3%AAn-controller)
+		- [Cài đặt và tạo DB cho các OpenStack](#user-content-c%C3%A0i-%C4%91%E1%BA%B7t-v%C3%A0-t%E1%BA%A1o-db-cho-c%C3%A1c-openstack)
+		- [Cài đặt Keystone](#user-content-c%C3%A0i-%C4%91%E1%BA%B7t-keystone)
+		- [Tạo user, role, tenant, phân quyền cho user và tạo các endpoint](#user-content-t%E1%BA%A1o-user-role-tenant-ph%C3%A2n-quy%E1%BB%81n-cho-user-v%C3%A0-t%E1%BA%A1o-c%C3%A1c-endpoint)
+		- [Cài đặt thành phần GLANCE](#user-content-c%C3%A0i-%C4%91%E1%BA%B7t-th%C3%A0nh-ph%E1%BA%A7n-glance)
+		- [Cài đặt NOVA](#user-content-c%C3%A0i-%C4%91%E1%BA%B7t-nova)
+		- [Cài đặt NEUTRON](#user-content-c%C3%A0i-%C4%91%E1%BA%B7t-neutron)
+		- [Cài đặt CINDER](#user-content-c%C3%A0i-%C4%91%E1%BA%B7t-cinder)
+	- [Cài đặt trên COMPUTE 1](#user-content-c%C3%A0i-%C4%91%E1%BA%B7t-tr%C3%AAn-compute-1)
+		- [Thiết lập địa chỉ IP cho các NICs](#user-content-thi%E1%BA%BFt-l%E1%BA%ADp-%C4%91%E1%BB%8Ba-ch%E1%BB%89-ip-cho-c%C3%A1c-nics-1)
+		- [Cài đặt các gói và cấu hình COMPUTE](#user-content-c%C3%A0i-%C4%91%E1%BA%B7t-c%C3%A1c-g%C3%B3i-v%C3%A0-c%E1%BA%A5u-h%C3%ACnh-compute)
+		- [Tạo các network cho OpenStack](#user-content-t%E1%BA%A1o-c%C3%A1c-network-cho-openstack)
+			- [Tao may ao](#user-content-tao-may-ao)
+		- [Cài đặt Horizon](#user-content-c%C3%A0i-%C4%91%E1%BA%B7t-horizon)
 
 
 # Mô hình
