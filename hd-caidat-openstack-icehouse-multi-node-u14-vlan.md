@@ -4,9 +4,9 @@
 # Mô hình
 
 
-## Các bước thực hiện
+# Các bước thực hiện
 
-### Cài đặt trên Controller 
+## Cài đặt trên Controller 
 ```sh
 apt-get install git -y
 
@@ -19,3 +19,16 @@ cd script-U1404-VLAN/
 chmod +x *.sh
 
 ```
+### Thiết lập địa chỉ IP cho các NICs
+```sh
+bash control-1.ipadd.sh
+```
+
+### Cài đặt các gói chuẩn bị trên CONTROLLER
+` Đăng nhập với quyền root và thực thi script dưới
+```sh
+cd script-U1404-VLAN
+
+bash control-2.prepare.sh 
+```
+
