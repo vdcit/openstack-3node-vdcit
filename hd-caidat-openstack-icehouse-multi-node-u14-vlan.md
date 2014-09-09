@@ -114,7 +114,7 @@ ls
 ```
 
 ###  Tạo các network cho OpenStack
-Thực thi trên CONTROLLER NODE
+Thực thi trên CONTROLLER NODE và khai báo 2 VLAN 10 và VLAN 20 tương ứng với các VLAN trong hệ thống vật lý của bạn.
 - Tạo Network cho VLAN 10 và khai báo subnet cho VLAN10
 ```sh
 neutron net-create vlan10 --provider:network_type vlan --provider:physical_network physnet1 \
@@ -137,7 +137,16 @@ vlan20 192.168.20.0/24 --dns_nameservers list=true 8.8.8.8
 ```sh
 neutron net-list
 ```
-
+- Kết quả của lệnh trên sẽ như dưới
+```sh
+root@controller1:~/script-U1404-VLAN# neutron net-list
++--------------------------------------+--------+------------------------------------------------------+
+| id                                   | name   | subnets                                              |
++--------------------------------------+--------+------------------------------------------------------+
+| b9e3e48c-0cab-4973-9e58-474822ada502 | vlan20 | 0c8ed678-d7d8-4a36-913f-7867b3341f31 192.168.20.0/24 |
+| fa96021d-e255-40bb-9faf-ddc5187989e0 | vlan10 | ee010859-7ca8-443f-ae91-03feac34ee79 192.168.10.0/24 |
++--------------------------------------+--------+------------------------------------------------------+
+```
 
 #### Tao may ao
 - Thay dòng `ID_cua_cac_network_o_tren` vào trong dòng lệnh dưới để tạo máy ảo.
