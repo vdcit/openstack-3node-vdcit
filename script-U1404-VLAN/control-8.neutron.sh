@@ -96,7 +96,7 @@ mechanism_drivers = openvswitch
 [ml2_type_flat]
 
 [ml2_type_vlan]
-network_vlan_ranges = physnet1:10:40
+network_vlan_ranges = physnet1:100:600
 
 [ml2_type_gre]
 
