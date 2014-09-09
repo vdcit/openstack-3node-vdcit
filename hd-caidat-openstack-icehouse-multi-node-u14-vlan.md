@@ -59,6 +59,15 @@ source admin-openrc.sh
 ```sh
 keystone catalog
 ```
+Kết quả của lệnh trên sẽ hiện thị các thông tin của các service (ID, URL, region) trong OpenStack 
+
+### Cài đặt thành phần GLANCE
+GLANCE dùng để cung cấp image template để khởi tạo máy ảo
+```sh
+bash control-6.glance.sh
+```
+- Shell thực hiện việc cài đặt GLANCE và tạo image với hệ điều hành Cirros (Bản Ubuntu thu gọn) dùng để kiểm tra GLANCE và tạo máy ảo sau này.
+
 
 ## Cài đặt trên COMPUTE 1
 ```sh
