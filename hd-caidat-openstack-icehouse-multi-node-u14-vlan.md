@@ -115,13 +115,13 @@ ls
 
 ###  Tạo các network cho OpenStack
 Thực thi trên CONTROLLER NODE
-- Tạo Network cho VLAN 10
+- Tạo Network cho VLAN 10 và khai báo subnet cho VLAN10
 ```sh
-neutron net-create vlan10 --provider:network_type vlan --provider:physical_network physnet1 --provider:segmentation_id 10 --shared --router:external=True
-```
-- Tạo subnnet cho VLAN 10 vừa tạo ở trên
- ```sh
-neutron subnet-create --name subnet10 --allocation-pool start=192.168.10.10,end=192.168.10.254 vlan10 192.168.10.0/24 --dns_nameservers list=true 8.8.8.8
+neutron net-create vlan10 --provider:network_type vlan --provider:physical_network physnet1 \
+--provider:segmentation_id 10 --shared --router:external=True
+
+neutron subnet-create --name subnet10 --allocation-pool start=192.168.10.10,end=192.168.10.254 \
+vlan10 192.168.10.0/24 --dns_nameservers list=true 8.8.8.8
 ```
 
 - Tạo Network cho VLAN 20
