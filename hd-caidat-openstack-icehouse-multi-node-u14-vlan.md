@@ -124,13 +124,13 @@ neutron subnet-create --name subnet10 --allocation-pool start=192.168.10.10,end=
 vlan10 192.168.10.0/24 --dns_nameservers list=true 8.8.8.8
 ```
 
-- Tạo Network cho VLAN 20
+- Tạo Network cho VLAN 20 và khai báo subnet cho VLAN20
 ```sh
-neutron net-create vlan20 --provider:network_type vlan --provider:physical_network physnet1 --provider:segmentation_id 20 --shared --router:external=True
-```
-- Tạo subnnet cho VLAN 20 vừa tạo ở trên
-```sh
-neutron subnet-create --name subnet20 --allocation-pool start=192.168.20.10,end=192.168.20.254 vlan20 192.168.20.0/24 --dns_nameservers list=true 8.8.8.8
+neutron net-create vlan20 --provider:network_type vlan --provider:physical_network physnet1 \
+--provider:segmentation_id 20 --shared --router:external=True
+
+neutron subnet-create --name subnet20 --allocation-pool start=192.168.20.10,end=192.168.20.254 \
+vlan20 192.168.20.0/24 --dns_nameservers list=true 8.8.8.8
 ```
 
 - Kiểm tra các network vừa tạo bằng lệnh dưới
