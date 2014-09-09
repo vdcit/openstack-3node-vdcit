@@ -2,6 +2,9 @@
 #
 source config.cfg
 
+echo "########## Bat dau gan bien cho qua trinh cai dat Keystone ########## "
+sleep 3
+
 export OS_SERVICE_TOKEN="$TOKEN_PASS"
 export OS_SERVICE_ENDPOINT="http://$CON_MGNT_IP:35357/v2.0"
 export SERVICE_ENDPOINT="http://$CON_MGNT_IP:35357/v2.0"
