@@ -68,6 +68,11 @@ bash control-6.glance.sh
 ```
 - Shell thực hiện việc cài đặt GLANCE và tạo image với hệ điều hành Cirros (Bản Ubuntu thu gọn) dùng để kiểm tra GLANCE và tạo máy ảo sau này.
 
+### Cài đặt NOVA
+```sh
+bash control-7.nova.sh
+```
+
 
 ## Cài đặt trên COMPUTE 1
 ```sh
