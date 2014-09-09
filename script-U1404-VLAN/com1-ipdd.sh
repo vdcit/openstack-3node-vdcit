@@ -20,8 +20,8 @@ auto lo
 iface lo inet loopback
 
 # MGNT NETWORK
-auto eth0
-iface eth0 inet static
+auto em1
+iface em1 inet static
 address $COM1_MGNT_IP
 netmask $NETMASK_ADD
 gateway $GATEWAY_IP
@@ -29,8 +29,8 @@ dns-nameservers 8.8.8.8
 
 
 # VLANs NETWORK
-auto eth1
-iface eth1 inet manual
+auto em2
+iface em2 inet manual
 up ifconfig \$IFACE 0.0.0.0 up
 up ip link set \$IFACE promisc on
 down ifconfig \$IFACE 0.0.0.0 down
