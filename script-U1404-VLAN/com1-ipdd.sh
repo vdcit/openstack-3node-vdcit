@@ -40,8 +40,8 @@ EOF
 #service networking restart
 
 #service networking restart
-# ifdown eth0 && ifup eth0
-# ifdown eth1 && ifup eth1
+# ifdown em1 && ifup em1
+# ifdown em2 && ifup em2
 # ifdown eth2 && ifup eth2
 
 #sleep 5

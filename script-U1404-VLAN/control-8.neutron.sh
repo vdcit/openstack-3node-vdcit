@@ -108,7 +108,7 @@ firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewal
 
 [ovs]
 tenant_network_type = vlan
-bridge_mappings = physnet1:br-eth1
+bridge_mappings = physnet1:br-em2
 
 EOF
 
@@ -154,8 +154,8 @@ EOF
 
 # Add them cac port cho OVS
 ovs-vsctl add-br br-int 
-ovs-vsctl add-br br-eth1
-ovs-vsctl add-port br-eth1 eth1
+ovs-vsctl add-br br-em2
+ovs-vsctl add-port br-em2 em2
 
 ovs-vsctl add-br br-ex 
 
