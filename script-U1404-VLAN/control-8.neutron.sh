@@ -19,19 +19,10 @@ sysctl -p
 
 echo "########## CAI DAT NEUTRON TREN $CON_MGNT_IP ##########"
 sleep 5
-apt-get -y install neutron-server neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms neutron-l3-agent neutron-dhcp-agent
 
-apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms neutron-l3-agent neutron-dhcp-agent -y
+aptitude -y install neutron-plugin-ml2 neutron-plugin-openvswitch-agent neutron-l3-agent neutron-dhcp-agent
+aptitude -y install neutron-server neutron-plugin-ml2 python-neutronclient
 
-apt-get install openswan neutron-plugin-vpn-agent neutron-lbaas-agent -y
-
-
-# Add them cac port cho OVS
-ovs-vsctl add-br br-int 
-ovs-vsctl add-br br-em2 
-ovs-vsctl add-port br-em2 em2
-
-ovs-vsctl add-br br-ex 
 
 ######## SAO LUU CAU HINH NEUTRON.CONF CHO $CON_MGNT_IP##################"
 echo "########## SUA FILE CAU HINH  NEUTRON CHO $CON_MGNT_IP ##########"
@@ -161,6 +152,13 @@ metadata_proxy_shared_secret = $ADMIN_PASS
 EOF
 #
 
+# Add them cac port cho OVS
+ovs-vsctl add-br br-int 
+ovs-vsctl add-br br-eth1
+ovs-vsctl add-port br-eth1 eth1
+
+ovs-vsctl add-br br-ex 
+
 echo "############  Khoi dong lai OpenvSwitch ############"
 sleep 7
 
@@ -174,7 +172,7 @@ service neutron-metadata-agent restart
 # service neutron-vpn-agent restart
 
 sleep 15
-service neutron-server restart
+
 service openvswitch-switch restart
 service neutron-plugin-openvswitch-agent restart
 service neutron-l3-agent restart
