@@ -16,8 +16,7 @@ neutron net-create ext_net --router:external True --shared
 
 echo "########## Tao subnet cho EXTENAL ##########"
 sleep 3
-neutron subnet-create --name sub_ext_net ext_net 192.168.1.0/24 --gateway 192.168.1.1 --allocation-pool start=192.168.1.200,end=192.168.1.250 --enable_dhcp=False --dns-nameservers list=true 8.8.8.8 8.8.4.4 210.245.0.11
-
+neutron subnet-create --name sub_ext_net ext_net 192.168.1.0/24 --gateway 192.168.1.1 --allocation-pool start=192.168.1.100,end=192.168.1.130 --enable_dhcp=False --dns-nameservers list=true 8.8.8.8 8.8.4.4
 
 ####################
 # Network cho tenant
