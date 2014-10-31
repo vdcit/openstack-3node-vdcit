@@ -40,8 +40,8 @@ EOF
 
 # Cho phep chen password tren dashboad ( chi ap dung voi image tu dong )
 sed -i "s/'can_set_password': False/'can_set_password': True/g" /etc/openstack-dashboard/local_settings.py
-sed -i "s/'enable_vpn': False/'enable_vpn': True/g" /etc/openstack-dashboard/local_settings.py
-sed -i "s/'enable_lb': False/'enable_lb': True/g" /etc/openstack-dashboard/local_settings.py
+# sed -i "s/'enable_vpn': False/'enable_vpn': True/g" /etc/openstack-dashboard/local_settings.py
+# sed -i "s/'enable_lb': False/'enable_lb': True/g" /etc/openstack-dashboard/local_settings.py
 
 ## /* Khởi động lại apache và memcached
 service apache2 restart
