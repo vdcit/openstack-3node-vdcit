@@ -275,7 +275,7 @@ COMPUTE node sẽ khởi động lại, cần phải đăng nhập bằng tải 
 
 Đăng nhập bằng tài khoản root và thực thi các lệnh dưới để tiến hành cài đặt nova
 
-    cd script-ubuntu1204
+    cd /root/script-U1404-3net
 	
     bash com1-prepare.sh
 
