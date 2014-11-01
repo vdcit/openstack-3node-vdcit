@@ -52,8 +52,8 @@ keystone user-role-add --tenant-id $SERVICE_TENANT --user-id $NOVA_USER --role-i
 NEUTRON_USER=$(get_id keystone user-create --name=neutron --pass="$SERVICE_PASSWORD" --tenant-id $SERVICE_TENANT --email=neutron@teststack.com)
 keystone user-role-add --tenant-id $SERVICE_TENANT --user-id $NEUTRON_USER --role-id $ADMIN_ROLE
 
-CINDER_USER=$(get_id keystone user-create --name=cinder --pass="$SERVICE_PASSWORD" --tenant-id $SERVICE_TENANT --email=cinder@teststack.com)
-keystone user-role-add --tenant-id $SERVICE_TENANT --user-id $CINDER_USER --role-id $ADMIN_ROLE
+# CINDER_USER=$(get_id keystone user-create --name=cinder --pass="$SERVICE_PASSWORD" --tenant-id $SERVICE_TENANT --email=cinder@teststack.com)
+# keystone user-role-add --tenant-id $SERVICE_TENANT --user-id $CINDER_USER --role-id $ADMIN_ROLE
 
 echo "########## Bat dau tao ENDPOINT cho cac dich vu ########## "
 sleep 5 
@@ -86,19 +86,19 @@ keystone endpoint-create \
 --adminurl http://controller:9696 \
 --internalurl http://controller:9696
 
-keystone service-create --name=cinder --type=volume --description="OpenStack Block Storage"
-keystone endpoint-create \
---service-id=$(keystone service-list | awk '/ volume / {print $2}') \
---publicurl=http://controller:8776/v1/%\(tenant_id\)s \
---internalurl=http://controller:8776/v1/%\(tenant_id\)s \
---adminurl=http://controller:8776/v1/%\(tenant_id\)s
+# keystone service-create --name=cinder --type=volume --description="OpenStack Block Storage"
+# keystone endpoint-create \
+# --service-id=$(keystone service-list | awk '/ volume / {print $2}') \
+# --publicurl=http://controller:8776/v1/%\(tenant_id\)s \
+# --internalurl=http://controller:8776/v1/%\(tenant_id\)s \
+# --adminurl=http://controller:8776/v1/%\(tenant_id\)s
 
-keystone service-create --name=cinderv2 --type=volumev2 --description="OpenStack Block Storage v2"
-keystone endpoint-create \
---service-id=$(keystone service-list | awk '/ volumev2 / {print $2}') \
---publicurl=http://controller:8776/v2/%\(tenant_id\)s \
---internalurl=http://controller:8776/v2/%\(tenant_id\)s \
---adminurl=http://controller:8776/v2/%\(tenant_id\)s
+# keystone service-create --name=cinderv2 --type=volumev2 --description="OpenStack Block Storage v2"
+# keystone endpoint-create \
+# --service-id=$(keystone service-list | awk '/ volumev2 / {print $2}') \
+# --publicurl=http://controller:8776/v2/%\(tenant_id\)s \
+# --internalurl=http://controller:8776/v2/%\(tenant_id\)s \
+# --adminurl=http://controller:8776/v2/%\(tenant_id\)s
 
 echo "########## TAO FILE CHO BIEN MOI TRUONG ##########"
 sleep 5
