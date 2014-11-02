@@ -10,25 +10,25 @@ nova secgroup-add-rule default udp 1 65535 0.0.0.0/0
 # PROVIDER
 #############
 
-echo "########## Tao network cho provider (EXTENAL) ##########"
-sleep 3
-neutron net-create ext_net --router:external True --shared 
+# echo "########## Tao network cho provider (EXTENAL) ##########"
+# sleep 3
+# neutron net-create ext_net --router:external True --shared 
 
-echo "########## Tao subnet cho EXTENAL ##########"
-sleep 3
-neutron subnet-create --name sub_ext_net ext_net 192.168.1.0/24 --gateway 192.168.1.1 --allocation-pool start=192.168.1.100,end=192.168.1.130 --enable_dhcp=False --dns-nameservers list=true 8.8.8.8 8.8.4.4
+# echo "########## Tao subnet cho EXTENAL ##########"
+# sleep 3
+# neutron subnet-create --name sub_ext_net ext_net 192.168.1.0/24 --gateway 192.168.1.1 --allocation-pool start=192.168.1.100,end=192.168.1.130 --enable_dhcp=False --dns-nameservers list=true 8.8.8.8 8.8.4.4
 
 ####################
 # Network cho tenant
 ####################
 
-echo "########## Tao network cho tenant ##########"
-sleep 3
-neutron net-create int_net 
+# echo "########## Tao network cho tenant ##########"
+# sleep 3
+# neutron net-create int_net 
 
-echo "########## Tao subnet cho network trong tenant ##########"
-sleep 3
-neutron subnet-create int_net --name int_subnet --dns-nameserver 8.8.8.8 172.16.10.0/24
+# echo "########## Tao subnet cho network trong tenant ##########"
+# sleep 3
+# neutron subnet-create int_net --name int_subnet --dns-nameserver 8.8.8.8 172.16.10.0/24
 
 
 #####################

@@ -298,13 +298,12 @@ Kết thúc bước cài đặt trên COMPUTE NODE, chuyển về CONTROLLER NOD
 
 Sau khi thực hiện xong việc cài đặt HORIZON, màn hình sẽ trả về IP ADD, User và Password để đăng nhập vào horizon    
     
-#### F.2. Tạo PUBLIC NET, PRIVATE NET, ROUTER
+#### F.2. Tạo policy 
 Tạo các policy để cho phép các máy ở ngoài có thể truy cập vào máy ảo (Instance) qua IP PUBLIC được floating.
-Thực hiện script dưới để tạo các loại network cho OpenStack
-Tạo router, gán subnet cho router, gán gateway cho router
-Khởi tạo một máy ảo với image là cirros để test
-
-    bash creat-network.sh
+```sh
+    bash creat-policy.sh
+```
+Sau bước này đăng nhập vào Horizon và tạo các network cần thiết. Sau đó launch máy ảo và sử dụng.
 
 #### Khởi động lại các node
 Khởi động lần lượt các node
