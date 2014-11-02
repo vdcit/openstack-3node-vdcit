@@ -46,7 +46,7 @@ service_plugins = router
 allow_overlapping_ips = True
 
 # Khai bao cho VPN, LB 
-service_plugins = router,lbaas,vpnaas
+# service_plugins = router,lbaas,vpnaas
 
 [quotas]
 
