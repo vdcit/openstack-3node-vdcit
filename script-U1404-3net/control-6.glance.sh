@@ -141,9 +141,9 @@ sleep 7
 echo "########## ADD THEM IMAGE CHO GLANCE ##########"
 mkdir images
 cd images/
-wget http://cdn.download.cirros-cloud.net/0.3.2/cirros-0.3.2-x86_64-disk.img
+wget http://download.cirros-cloud.net/0.3.3/cirros-0.3.3-x86_64-disk.img
 glance image-create --name "cirros-0.3.2-x86_64" --disk-format qcow2 \
---container-format bare --is-public True --progress < cirros-0.3.2-x86_64-disk.img
+--container-format bare --is-public True --progress < cirros-0.3.3-x86_64-disk.img
 cd /root/
 
 sleep 7
