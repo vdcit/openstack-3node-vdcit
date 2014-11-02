@@ -54,8 +54,10 @@ sysctl -p
 
 echo "############ Cai cac goi cho network node ############ "
 sleep 7 
-apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms neutron-l3-agent neutron-dhcp-agent -y
+apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms \
+neutron-l3-agent neutron-dhcp-agent
 
+# apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms neutron-l3-agent neutron-dhcp-agent -y
 # apt-get install openswan neutron-plugin-vpn-agent neutron-lbaas-agent -y
 
 #
@@ -85,7 +87,9 @@ lock_path = \$state_path/lock
 notification_driver = neutron.openstack.common.notifier.rpc_notifier
 
 #Khai bao cho LB va VPN
-service_plugins = router,lbaas,vpnaas
+service_plugins = router
+# service_plugins = router,lbaas,vpnaas
+
 [quotas]
 
 [agent]
@@ -105,7 +109,7 @@ signing_dir = \$state_path/keystone-signing
 #connection = sqlite:////var/lib/neutron/neutron.sqlite
 [service_providers]
 service_provider=LOADBALANCER:Haproxy:neutron.services.loadbalancer.drivers.haproxy.plugin_driver.HaproxyOnHostPluginDriver:default
-service_provider=VPN:openswan:neutron.services.vpn.service_drivers.ipsec.IPsecVPNDriver:default
+# service_provider=VPN:openswan:neutron.services.vpn.service_drivers.ipsec.IPsecVPNDriver:default
 EOF
 #
 echo "############ Sua file cau hinh L3 AGENT ############"
