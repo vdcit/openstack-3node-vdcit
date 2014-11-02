@@ -35,30 +35,30 @@ nova secgroup-add-rule default udp 1 65535 0.0.0.0/0
 # Tao router, gan network, gan interface 
 #####################
 
-echo "########## Tao router ##########"
-sleep 3
-neutron router-create router_1
+# echo "########## Tao router ##########"
+# sleep 3
+# neutron router-create router_1
 
-echo "########## Thiet lap defaul gateway cho Router ##########"
-sleep 3
-neutron router-gateway-set router_1 ext_net
+# echo "########## Thiet lap defaul gateway cho Router ##########"
+# sleep 3
+# neutron router-gateway-set router_1 ext_net
 
-echo "########## Khai bao network cua tenant cho Router ##########"
-sleep 3
-neutron router-interface-add router_1 int_subnet
+# echo "########## Khai bao network cua tenant cho Router ##########"
+# sleep 3
+# neutron router-interface-add router_1 int_subnet
 
 
 # LAY ID cua subnet internal  
-ID_int_net=`neutron net-list | awk '/int*/ {print $2}'`
+# ID_int_net=`neutron net-list | awk '/int*/ {print $2}'`
 # echo $ID_int_net
 
 
-echo "########## Tao may ao ten la vm6969 de kiem tra ##########"
-nova boot vm6969 --image cirros-0.3.2-x86_64 --flavor 1 --security-groups default --nic net-id=$ID_int_net
+# echo "########## Tao may ao ten la vm6969 de kiem tra ##########"
+# nova boot vm6969 --image cirros-0.3.2-x86_64 --flavor 1 --security-groups default --nic net-id=$ID_int_net
 
-echo "########## Hoan thanh viec tao may ao ##########"
-sleep 10
-nova list 
+# echo "########## Hoan thanh viec tao may ao ##########"
+# sleep 10
+# nova list 
 # Tao flavor or example, create a new flavor called m1.custom with an ID of 6, 512 MB of RAM, 5 GB of root disk space, and 1 vCPU:
 
 # echo "########## Tao flavor co ID la 6 , RAM 512Mb, HDD 5Gb, CPU 1##########"
