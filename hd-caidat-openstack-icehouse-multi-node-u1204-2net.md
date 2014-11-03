@@ -67,7 +67,7 @@ apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 
 apt-get install git -y
 	
-git clone https://github.com/longsube/openstack-3node-vdcit.git
+git clone https://github.com/vdcit/openstack-3node-vdcit.git
 	
 mv /root/openstack-3node-vdcit/script-ubuntu1204/ script-ubuntu1204
 	
@@ -295,7 +295,7 @@ apt-get update
 
 apt-get install git -y
 
-git clone https://github.com/longsube/openstack-3node-vdcit.git
+git clone https://github.com/vdcit/openstack-3node-vdcit.git
 
 mv /root/openstack-3node-vdcit/script-ubuntu1204/ script-ubuntu1204
 
