@@ -60,7 +60,10 @@ Minh họa bằng hình:
 #### B.1. Thao tác trên tất cả các máy chủ
 Truy cập bằng tài khoản root vào máy các máy chủ và tải các gói, script chuẩn bị cho quá trình cài đặt
 ```sh
-apt-get update
+
+sudo rm -vf /var/lib/apt/lists/partial/*
+
+apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 
 apt-get install git -y
 	
