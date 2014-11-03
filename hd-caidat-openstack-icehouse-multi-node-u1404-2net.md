@@ -67,15 +67,15 @@ apt-get install git -y
 	
 git clone https://github.com/vdcit/openstack-3node-vdcit.git
 	
-mv /root/openstack-3node-vdcit/script-ubuntu1204/ script-ubuntu1204
+mv /root/openstack-3node-vdcit/script-U1404-2net/ script-U1404-2net
 	
-cd script-ubuntu1204
+cd script-U1404-2net
 	
 chmod +x *.sh
 ```
 #### B.2. Sửa file khai báo các thông số trước khi thực thi shell
 Trước lúc chỉnh sửa, KHÔNG cần gán IP tĩnh cho các NICs trên từng máy chủ.
-Dùng vi để sửa file config.cfg nằm trong thư mục script-ubuntu1204 với các IP theo ý bạn hoặc giữ nguyên các IP và đảm bảo chúng chưa được gán cho máy nào trong mạng của bạn.
+Dùng vi để sửa file config.cfg nằm trong thư mục script-U1404-2net với các IP theo ý bạn hoặc giữ nguyên các IP và đảm bảo chúng chưa được gán cho máy nào trong mạng của bạn.
 File gốc như sau: (tốt nhất đặt giống file gốc)
 
 	# Khai bao IP cho CONTROLLER NODE
@@ -145,9 +145,9 @@ Sau khi thực hiện script trên, máy Controller sẽ khởi động lại v�
 -->
 #### C.2. Cài đặt các gói MYSQL, NTP cho Controller Node
 Đăng nhập vào Controller bằng địa chỉ <b>CON_EXT_IP</b> khai báo trong file <b><i>config.cfg</i></b> là 192.168.1.71 bằng tài khoản root.
-Sau đó di chuyển vào thư mục script-ubuntu1204 bằng lệnh cd và thực thi bằng lệnh bash
+Sau đó di chuyển vào thư mục script-U1404-2net bằng lệnh cd và thực thi bằng lệnh bash
 
-    cd script-ubuntu1204
+    cd script-U1404-2net
     bash control-2.prepare.sh
     
 #### C.3. Tạo Database cho các thành phần 
@@ -219,9 +219,9 @@ apt-get install git -y
 
 git clone https://github.com/vdcit/openstack-3node-vdcit.git
 
-mv /root/openstack-3node-vdcit/script-ubuntu1204/ script-ubuntu1204
+mv /root/openstack-3node-vdcit/script-U1404-2net/ script-U1404-2net
 
-cd script-ubuntu1204
+cd script-U1404-2net
 
 chmod +x *.sh
 ```
@@ -277,9 +277,9 @@ Chú ý: Shell sẽ chuyển eth1 sang chế độ promisc và đặt IP cho br-
 
 #### D.2. Thực thi việc cài đặt NEUTRON và cấu hình
 - Dùng putty ssh vào NETWORK NODE bằng IP 192.168.1.172 với tài khoản root
-- Di chuyển vào thư mục script-ubuntu1204 và thực thi shell dưới
+- Di chuyển vào thư mục script-U1404-2net và thực thi shell dưới
 ```sh
-cd script-ubuntu1204
+cd script-U1404-2net
 bash net-prepare.sh
 ```
 Kết thúc cài đặt trên NETWORK NODE và chuyển sang cài đặt COMPUTE NODE
@@ -295,9 +295,9 @@ apt-get install git -y
 
 git clone https://github.com/vdcit/openstack-3node-vdcit.git
 
-mv /root/openstack-3node-vdcit/script-ubuntu1204/ script-ubuntu1204
+mv /root/openstack-3node-vdcit/script-U1404-2net/ script-U1404-2net
 
-cd script-ubuntu1204
+cd script-U1404-2net
 
 chmod +x *.sh
 ```
@@ -356,7 +356,7 @@ COMPUTE node sẽ khởi động lại, cần phải đăng nhập bằng tải 
 
 Đăng nhập bằng tài khoản root và thực thi các lệnh dưới để tiến hành cài đặt nova
 
-    cd script-ubuntu1204
+    cd script-U1404-2net
 	
     bash com1-prepare.sh
 
@@ -371,9 +371,9 @@ Kết thúc bước cài đặt trên COMPUTE NODE, chuyển về CONTROLLER NOD
 ### F. CÀI HORIZON, tạo các network trên CONTROLLER NODE
 
 #### F.1. Cài đặt Horizon
-Đăng nhập bằng tài khoản root và đứng tại thư mục /root/script-ubuntu1204
+Đăng nhập bằng tài khoản root và đứng tại thư mục /root/script-U1404-2net
 
-    cd /root/script-ubuntu1204
+    cd /root/script-U1404-2net
 	
     bash control-horizon.sh
 
