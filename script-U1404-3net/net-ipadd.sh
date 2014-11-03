@@ -44,11 +44,10 @@ iface eth1 inet manual
    down ip link set \$IFACE promisc off
    down ifconfig \$IFACE down
 
-# NIC DATA VM
-auto eth2
-iface eth2 inet static
-address $NET_DATA_VM_IP
-netmask $NETMASK_ADD
+# auto eth2
+# iface eth2 inet static
+# address $NET_DATA_VM_IP
+# netmask $NETMASK_ADD
 EOF
 
 echo "Cau hinh hostname cho NETWORK NODE"
