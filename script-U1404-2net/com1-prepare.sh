@@ -3,16 +3,6 @@
 
 source config.cfg
 
-# Cau hinh cho file /etc/hosts
-# COM1_IP_MGNT=10.10.10.73
-# COM1_IP_DATA=10.10.20.73
-# COM2_IP_MGNT=10.10.10.74
-# COM2_IP_DATA=10.10.20.74
-# CON_IP_EX=192.168.1.71
-# CON_IP_MGNT=10.10.10.71
-# ADMIN_PASS=a
-# RABBIT_PASS=a
-#
 iphost=/etc/hosts
 test -f $iphost.orig || cp $iphost $iphost.orig
 rm $iphost
@@ -116,17 +106,18 @@ auth_strategy = keystone
 rpc_backend = rabbit
 rabbit_host = controller
 rabbit_password = $RABBIT_PASS
+
+# Chen password cho VM
+libvirt_inject_password = True
+libvirt_inject_partition = -1
+enable_instance_password = True
+
 my_ip = $COM1_MGNT_IP
 vnc_enabled = True
 vncserver_listen = 0.0.0.0
 vncserver_proxyclient_address = $COM1_MGNT_IP
 novncproxy_base_url = http://$CON_EXT_IP:6080/vnc_auto.html
 glance_host = controller
-
-# Cho phep chen password khi khoi tao
-libvirt_inject_password = True
-libvirt_inject_partition = -1
-enable_instance_password = True
 
 # Cho phep thay doi kich thuoc may ao
 allow_resize_to_same_host=True

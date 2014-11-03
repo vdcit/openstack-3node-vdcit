@@ -1,9 +1,5 @@
 #!/bin/bash -ex
 #
-# RABBIT_PASS=a
-# ADMIN_PASS=a
-# METADATA_SECRET=hell0
-# NET_IP_DATA=10.10.20.72 
 
 source config.cfg
 
@@ -56,7 +52,6 @@ echo "############ Cai cac goi cho network node ############ "
 sleep 7 
 apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms \
 neutron-l3-agent neutron-dhcp-agent -y
-
 # apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent openvswitch-datapath-dkms neutron-l3-agent neutron-dhcp-agent -y
 # apt-get install openswan neutron-plugin-vpn-agent neutron-lbaas-agent -y
 
@@ -87,9 +82,7 @@ lock_path = \$state_path/lock
 notification_driver = neutron.openstack.common.notifier.rpc_notifier
 
 #Khai bao cho LB va VPN
-# service_plugins = router
 # service_plugins = router,lbaas,vpnaas
-
 [quotas]
 
 [agent]
@@ -141,16 +134,9 @@ cat << EOF >> $netdhcp
 interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver
 dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq
 use_namespaces = True
-# dnsmasq_config_file = /etc/neutron/dnsmasq-neutron.conf
 verbose = True
 EOF
 #
-
-# echo "Fix loi MTU"
-# sleep 3
-# echo "dhcp-option-force=26,1454" > /etc/neutron/dnsmasq-neutron.conf
-# killall dnsmasq
-
 echo "############  Sua file cau hinh METADATA AGENT ############"
 sleep 7 
 #
@@ -210,7 +196,7 @@ EOF
 
 # echo "############ Sua file cau hinh LB AGENT ############"
 # sleep 7 
-#
+# #
 # lbagent=/etc/neutron/lbaas_agent.ini
 
 # test -f $lbagent.orig || cp $lbagent $lbagent.orig
@@ -233,7 +219,7 @@ EOF
 # touch $vpnagent
 
 # cat << EOF >> $vpnagent
-# [DEFAULT]
+#[DEFAULT]
 # interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver
 
 # [vpnagent]

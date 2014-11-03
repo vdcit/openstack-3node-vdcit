@@ -21,14 +21,14 @@ cat << EOF >> $iphost
 127.0.0.1       localhost
 $CON_MGNT_IP    controller
 $COM1_MGNT_IP      compute1
-127.0.0.1        compute1
+127.0.0.1        compute2
 $COM2_MGNT_IP      compute2
 $NET_MGNT_IP     network
 EOF
 
 # Cai dat repos va update
 
-# apt-get install -y python-software-properties &&  add-apt-repository cloud-archive:icehouse -y 
+apt-get install -y python-software-properties &&  add-apt-repository cloud-archive:icehouse -y 
 apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade 
 
 # apt-get update -y
@@ -116,22 +116,12 @@ auth_strategy = keystone
 rpc_backend = rabbit
 rabbit_host = controller
 rabbit_password = $RABBIT_PASS
-my_ip = $COM1_MGNT_IP
+my_ip = $COM2_MGNT_IP
 vnc_enabled = True
 vncserver_listen = 0.0.0.0
-vncserver_proxyclient_address = $COM1_MGNT_IP
+vncserver_proxyclient_address = $COM2_MGNT_IP
 novncproxy_base_url = http://$CON_EXT_IP:6080/vnc_auto.html
 glance_host = controller
-
-# Cho phep chen password khi khoi tao
-libvirt_inject_password = True
-libvirt_inject_partition = -1
-enable_instance_password = True
-
-# Cho phep thay doi kich thuoc may ao
-allow_resize_to_same_host=True
-scheduler_default_filters=AllHostsFilter
-
 [database]
 connection = mysql://nova:$ADMIN_PASS@controller/nova
 [keystone_authtoken]
@@ -142,7 +132,6 @@ auth_protocol = http
 admin_tenant_name = service
 admin_user = nova
 admin_password = $ADMIN_PASS
-
 EOF
 
 # Xoa file sql mac dinh
@@ -233,7 +222,7 @@ tunnel_id_ranges = 1:1000
 [ml2_type_vxlan]
 
 [ovs]
-local_ip = $COM1_DATA_VM_IP
+local_ip = $COM2_DATA_VM_IP
 tunnel_type = gre
 enable_tunneling = True
 
