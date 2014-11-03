@@ -206,6 +206,10 @@ GLANCE dùng để cung cấp image template để khởi tạo máy ảo
 
     bash control-8.neutron.sh
     
+#### C.8 Cài đặt CINDER
+```sh
+bash control-9.cinder.sh
+```
 
 Tạm dừng việc cài đặt trên CONTROLLER NODE, sau khi cài xong NETWORK NODE và COMPUTE1 NODE sẽ quay lại để cài HORIZON và tạo các network, router.
 
@@ -385,7 +389,7 @@ Thực hiện script dưới để tạo các loại network cho OpenStack
 Tạo router, gán subnet cho router, gán gateway cho router
 Khởi tạo một máy ảo với image là cirros để test
 
-    bash creat-network.sh
+    bash creat-policy.sh
 
 #### Khởi động lại các node
 Khởi động lần lượt các node
