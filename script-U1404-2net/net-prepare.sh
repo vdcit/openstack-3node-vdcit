@@ -135,8 +135,12 @@ interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver
 dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq
 use_namespaces = True
 verbose = True
+dnsmasq_config_file = /etc/neutron/dnsmasq-neutron.conf
 EOF
 #
+#FIX LOI MTU
+echo "dhcp-option-force=26,1454" > /etc/neutron/dnsmasq-neutron.conf
+
 echo "############  Sua file cau hinh METADATA AGENT ############"
 sleep 7 
 #

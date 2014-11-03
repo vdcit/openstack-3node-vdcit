@@ -14,14 +14,16 @@ apt-get -y install openstack-dashboard memcached && dpkg --purge openstack-dashb
 echo "########## Cau hinh fix loi cho apache2 ##########"
 sleep 5
 # Fix loi apache cho ubuntu 14.04
-# echo "ServerName localhost" > /etc/apache2/conf-available/servername.conf
-# sudo a2enconf servername 
-echo "ServerName localhost" >> /etc/apache2/httpd.conf
+echo "ServerName localhost" > /etc/apache2/conf-available/servername.conf
+sudo a2enconf servername 
+
+# Fix loi apache cho ubuntu 12.04
+# echo "ServerName localhost" >> /etc/apache2/httpd.conf
 
 
 echo "########## Tao trang redirect ##########"
 
-filehtml=/var/www/index.html
+filehtml=/var/www/html/index.html
 test -f $filehtml.orig || cp $filehtml $filehtml.orig
 rm $filehtml
 touch $filehtml

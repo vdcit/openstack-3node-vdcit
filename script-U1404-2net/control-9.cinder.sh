@@ -5,8 +5,8 @@ apt-get install lvm2 -y
 
 echo "########## Tao Physical Volume va Volume Group (tren disk sdb ) ##########"
 fdisk -l
-pvcreate /dev/sda6
-vgcreate cinder-volumes /dev/sda6
+pvcreate /dev/sda3
+vgcreate cinder-volumes /dev/sda3
 
 #
 echo "########## Cai dat cac goi cho CINDER ##########"
