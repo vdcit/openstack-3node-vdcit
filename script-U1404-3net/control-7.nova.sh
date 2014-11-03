@@ -57,8 +57,9 @@ scheduler_default_filters=AllHostsFilter
 
 # Cho phep chen password khi khoi tao
 libvirt_inject_password = True
-libvirt_inject_partition = -1
 enable_instance_password = True
+libvirt_inject_key = true
+libvirt_inject_partition = -1
 
 
 network_api_class = nova.network.neutronv2.api.API

@@ -44,6 +44,7 @@ apt-get install python-mysqldb -y
 
 # Cai cac goi can thiet cho compute 
 apt-get install nova-compute-kvm python-guestfs -y
+apt-get install libguestfs-tools -y
 
 ########
 echo "############ Cau hinh NTP ############"
@@ -125,8 +126,9 @@ glance_host = controller
 
 # Cho phep chen password khi khoi tao
 libvirt_inject_password = True
-libvirt_inject_partition = -1
 enable_instance_password = True
+libvirt_inject_key = true
+libvirt_inject_partition = -1
 
 # Cho phep thay doi kich thuoc may ao
 allow_resize_to_same_host=True

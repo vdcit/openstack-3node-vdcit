@@ -34,6 +34,8 @@ apt-get install python-mysqldb -y
 
 # Cai cac goi can thiet cho compute 
 apt-get install nova-compute-kvm python-guestfs -y
+apt-get install libguestfs-tools -y
+
 
 ########
 echo "############ Cau hinh NTP ############"
@@ -109,8 +111,9 @@ rabbit_password = $RABBIT_PASS
 
 # Chen password cho VM
 libvirt_inject_password = True
-libvirt_inject_partition = -1
 enable_instance_password = True
+libvirt_inject_key = true
+libvirt_inject_partition = -1
 
 my_ip = $COM1_MGNT_IP
 vnc_enabled = True

@@ -35,6 +35,7 @@ apt-get install python-mysqldb -y
 
 # Cai cac goi can thiet cho compute 
 apt-get install nova-compute-kvm python-guestfs -y
+apt-get install libguestfs-tools -y
 
 ########
 echo "############ Cau hinh NTP ############"
@@ -113,8 +114,9 @@ resume_guests_state_on_host_boot=True
 
 #Cho phep dat password cho Instance khi khoi tao
 libvirt_inject_password = True
-libvirt_inject_partition = -1
 enable_instance_password = True
+libvirt_inject_key = true
+libvirt_inject_partition = -1
 
 # Cau hinh RABBIT
 rpc_backend = rabbit
