@@ -61,8 +61,6 @@ Minh họa bằng hình:
 Truy cập bằng tài khoản root vào máy các máy chủ và tải các gói, script chuẩn bị cho quá trình cài đặt
 ```sh
 
-sudo rm -vf /var/lib/apt/lists/partial/*
-
 apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 
 apt-get install git -y
