@@ -1,12 +1,9 @@
 #!/bin/bash -ex
 #
-# RABBIT_PASS=a
-# ADMIN_PASS=a
 
 source config.cfg
 
 SERVICE_ID=`keystone tenant-get service | awk '$2~/^id/{print $4}'`
-
 
 echo "########## CAI DAT NEUTRON TREN CONTROLLER################"
 sleep 5
@@ -46,7 +43,8 @@ service_plugins = router
 allow_overlapping_ips = True
 
 # Khai bao cho VPN, LB 
-service_plugins = router,lbaas,vpnaas
+service_plugins = router
+#service_plugins = router,lbaas,vpnaas
 
 [quotas]
 
