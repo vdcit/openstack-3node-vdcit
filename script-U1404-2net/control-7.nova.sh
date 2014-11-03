@@ -11,6 +11,7 @@ echo "########## CAI DAT NOVA TREN CONTROLLER ##########"
 sleep 5 
 apt-get -y install nova-api nova-cert nova-conductor nova-consoleauth nova-novncproxy nova-scheduler python-novaclient
 
+sudo apt-get install libguestfs-tools -y
 ######## SAO LUU CAU HINH cho NOVA ##########"
 sleep 7
 
