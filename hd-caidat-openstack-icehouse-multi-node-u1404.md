@@ -126,6 +126,12 @@ GLANCE dùng để cung cấp image template để khởi tạo máy ảo
 bash control-8.neutron.sh
 ```    
 
+#### C.9 Cài đặt CINDER
+```sh
+bash control-9.cinder.sh
+```    
+
+
 Tạm dừng việc cài đặt trên CONTROLLER NODE, sau khi cài xong NETWORK NODE và COMPUTE1 NODE sẽ quay lại để cài HORIZON và tạo các network, router.
 
 ### D. CÀI ĐẶT TRÊN NETWORK NODE
