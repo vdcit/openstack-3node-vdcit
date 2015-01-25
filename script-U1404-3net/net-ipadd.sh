@@ -50,7 +50,7 @@ iface eth1 inet manual
 auto eth2
 iface eth2 inet static
 address $NET_DATA_VM_IP
-netmask $NETMASK_ADD
+netmask $NETMASK_ADD_VM
 EOF
 
 echo "Cau hinh hostname cho NETWORK NODE"
