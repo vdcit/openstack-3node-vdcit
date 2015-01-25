@@ -3,10 +3,10 @@ source config.cfg
 
 apt-get install lvm2 -y
 
-echo "########## Tao Physical Volume va Volume Group (tren disk sdb ) ##########"
+echo "########## Tao Physical Volume va Volume Group (tren disk vdb ) ##########"
 fdisk -l
-pvcreate /dev/sdb
-vgcreate cinder-volumes /dev/sdb
+pvcreate /dev/vdb
+vgcreate cinder-volumes /dev/vdb
 
 #
 echo "########## Cai dat cac goi cho CINDER ##########"
